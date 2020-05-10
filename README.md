@@ -1,4 +1,15 @@
-<h1 align="center">medum</h1>
+<p align="center">
+    <img src="./src/logo.png">
+</p>
+<p align="center">
+    a terminal todo manager written in go.
+</p>
+<p align="center">
+<img src="https://goreportcard.com/badge/github.com/jeasonlau/medum?longCache=true&style=for-the-badge">
+<img src="https://img.shields.io/badge/license-MIT-orange.svg?longCache=true&style=for-the-badge">
+<img src="https://img.shields.io/badge/status-WIP-red.svg?longCache=true&style=for-the-badge">
+</p>
+
 
 ## what?
 
@@ -14,5 +25,5 @@ medum（将）是一款使用go语言开发的命令行待办事项管理器。
 
 ## when?
 
-开发时间待定，先画个大饼在这里（滑稽
+WIP.
 

@@ -2,9 +2,10 @@ package main
 
 import (
 	"fmt"
-	"medum/path"
+	"medum/config"
 )
 
 func main() {
-	fmt.Println(path.GetDataPath())
+	test := *config.ReadConfig()
+	fmt.Println(test)
 }

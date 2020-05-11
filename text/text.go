@@ -3,12 +3,24 @@ package text
 
 //error list
 const (
-	HomedirError      = "error while getting homedir: %v\n"
-	OpenConfigError   = "error while opening config: %v\n"
-	CreateConfigError = "error while creating config: %v\n"
-	OpenDBError       = "error while opening DB: %v\n"
-	InsertDBError     = "error while inserting DB: %v\n"
-	QueryDBError      = "error while querying DB: %v\n"
+	HomedirError      = "error while getting homedir: %v"
+	OpenConfigError   = "error while opening config: %v"
+	CreateConfigError = "error while creating config: %v"
+	OpenDBError       = "error while opening DB: %v"
+	InsertDBError     = "error while inserting DB: %v"
+	QueryDBError      = "error while querying DB: %v"
+	LengthError       = "error while parsing parameters: time format must be month.day.hour.minute"
+	ParamError        = "error while parsing time: %v"
+	TimeError         = "error while comparing time: beginTime is larger than endTime"
+)
+
+//log list
+const (
+	DeleteSuccess = "successfully delete outdated events"
+	InsertSuccess = "successfully insert event"
+	StandredTime  = "2006-1-2 15:04:05 +0800 CST"
+	MyTime        = "%s-%s-%s %s:%s:00 +0800 CST"
+	TimeRemaining = "%s remaining"
 )
 
 //sql list

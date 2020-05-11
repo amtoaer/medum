@@ -27,7 +27,35 @@ func openSqliteDB() *sql.DB {
 func InsertSqliteDB(eventContent string, beginDate, endDate time.Time) error {
 	db := openSqliteDB()
 	defer db.Close()
-	tmp, _ := db.Prepare(text.InsertTable)
-	_, err := tmp.Exec(eventContent, beginDate, endDate)
+	_, err := db.Exec(text.InsertRow, eventContent, beginDate.Unix(), endDate.Unix())
+	return err
+}
+
+//UpdateSqliteDB is used to exec sql string.
+//sql string can be text.MarkNotStart, text.MarkInProgress, text.MarkOutdate.
+func UpdateSqliteDB(sql string) error {
+	db := openSqliteDB()
+	defer db.Close()
+	_, err := db.Exec(sql, time.Now().Unix())
+	return err
+}
+
+// QuerySqliteDB returns the result of query.
+func QuerySqliteDB() *sql.Rows {
+	db := openSqliteDB()
+	defer db.Close()
+	result, err := db.Query(text.QueryRow)
+	if err != nil {
+		fmt.Printf(text.QueryDBError, err)
+		os.Exit(1)
+	}
+	return result
+}
+
+//DeleteSqliteDB removes those outdated events
+func DeleteSqliteDB() error {
+	db := openSqliteDB()
+	defer db.Close()
+	_, err := db.Exec(text.DeleteOutDate)
 	return err
 }

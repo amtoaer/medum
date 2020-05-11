@@ -71,6 +71,49 @@ Flags:
   -d, --delete                 delete outdated events.
 ```
 
+## 配置
+
+该项目支持自定义输出颜色，配置文件位于`~/.medum/config.json`，内容如下：
+
+```json
+{
+    "NumberColor": "red",
+    "EventColor": "blue",
+    "TimeColor": "yellow"
+}
+```
+
+具体来说，指的是：
+
+```bash
+8 | 🍺 数电作业 | ⌛ 13 hours remaining
+↑        ↑               ↑
+red     blue           yellow
+```
+
+允许的颜色共有十六种，分别为：
+
+```go
+var funcs = map[string]interface{}{
+	"red":       color.New(color.FgRed),
+	"blue":      color.New(color.FgBlue),
+	"cyan":      color.New(color.FgCyan),
+	"green":     color.New(color.FgGreen),
+	"yellow":    color.New(color.FgYellow),
+	"magenta":   color.New(color.FgMagenta),
+	"white":     color.New(color.FgWhite),
+	"black":     color.New(color.FgBlack),
+	"hired":     color.New(color.FgHiRed),
+	"hiblue":    color.New(color.FgHiBlue),
+	"hicyan":    color.New(color.FgHiCyan),
+	"higreen":   color.New(color.FgHiGreen),
+	"hiyellow":  color.New(color.FgHiYellow),
+	"himagenta": color.New(color.FgHiMagenta),
+	"hiwhite":   color.New(color.FgHiWhite),
+	"hiblack":   color.New(color.FgHiBlack),
+}
+```
+
 ## 引用
 
 在项目中使用到的第三方package:

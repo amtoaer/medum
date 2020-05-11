@@ -11,7 +11,7 @@ type Configuration struct {
 
 // Event struct
 type Event struct {
-	ID           uint64
+	ID           int64
 	EventContent string
 	BeginDate    int64
 	EndDate      int64

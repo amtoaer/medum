@@ -23,9 +23,9 @@ func writeInitConfig(configPath string) {
 		os.Exit(1)
 	}
 	conf := public.Configuration{
-		NumberColor: "blue",
-		EventColor:  "red",
-		TimeColor:   "green",
+		NumberColor: "red",
+		EventColor:  "blue",
+		TimeColor:   "yellow",
 	}
 	encoder := json.NewEncoder(file)
 	encoder.Encode(conf)

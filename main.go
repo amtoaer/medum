@@ -67,16 +67,17 @@ func main() {
 				sqlite.UpdateSqliteDB(text.MarkOutdate)
 				err := sqlite.DeleteOutDate()
 				if err != nil {
-					fmt.Printf(text.DeleteOutDateError, err)
+					fmt.Printf(text.DeleteOutdateError, err)
 					os.Exit(1)
 				}
-				fmt.Println(text.DeleteSuccess)
+				fmt.Println(text.DeleteOutdateSuccess)
 			} else if done != 0 { // if -d, ignore others
 				err := sqlite.DeleteID(done)
 				if err != nil {
 					fmt.Printf(text.DeleteIDError, err)
 					os.Exit(1)
 				}
+				fmt.Println(text.DeleteIDSuccess)
 			} else {
 				if len(end) == 0 { //if not -e, print todo list
 					sqlite.UpdateSqliteDB(text.MarkInProgress)

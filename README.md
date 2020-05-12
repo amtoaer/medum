@@ -11,8 +11,6 @@
 </p>
 
 
-
-
 ## 介绍
 
 medum是一款使用go语言开发的命令行待办事项管理器。
@@ -39,8 +37,10 @@ medum是一款使用go语言开发的命令行待办事项管理器。
 
 此处列出当前已知的`bug`，等待修复：
 
--   [ ] 距离开始时间和距离结束时间显示格式均为`%s remaining`，无法区分
--   [ ] 不支持完成后手动删除事件（即类似于`todo done 1`这样的操作）
+`v1.1.1`修复：
+
+-   [x] 距离开始时间和距离结束时间显示格式均为`%s remaining`，无法区分
+-   [x] 不支持完成后手动删除事件（即类似于`todo done 1`这样的操作）
 
 
 ## 安装
@@ -48,7 +48,7 @@ medum是一款使用go语言开发的命令行待办事项管理器。
 >   在输出中使用到了第三方的emoji package打印emoji表情，暂不确定windows平台的兼容性。
 
 1.  下载`release`页面中的二进制程序，参照[#用法](#用法)运行。
-2.  手动构建。
+2.  手动构建（以linux为例）。
 
 +   安装go与git。
 
@@ -70,36 +70,56 @@ medum是一款使用go语言开发的命令行待办事项管理器。
 
 ```bash
 ⟩ medum --help
-usage: medum [<flags>]
+NAME:
+   medum - a terminal todo manager
 
-Flags:
-      --help                   Show context-sensitive help (also try --help-long
-                               and --help-man).
-  -b, --begin time=BEGIN TIME  event's begin time.
-  -e, --end time=END TIME      event's end time.
-  -n, --name=NAME              event's name.
-  -d, --delete                 delete outdated events.
+USAGE:
+   medum [global options] command [command options] [arguments...]
+
+COMMANDS:
+   help, h  Shows a list of commands or help for one command
+
+GLOBAL OPTIONS:
+   --begin value, -b value  event's begin time
+   --end value, -e value    event's end time
+   --name value, -n value   event's name
+   --remove, -r             remove outdated events (default: false)
+   --done value, -d value   the id of your finished event (default: 0)
+   --help, -h               show help (default: false)
 ```
 
-举例：
+常用操作演示：
 
-```c
-//删除已过期的事件
-⟩ medum -d
-successfully delete outdated events
-//插入新事件，deadline为5/15，12:00（起始时间默认为当前时刻）
-⟩ medum -e 5.15.12.00 -n 测试3
+```bash
+# 当前时间为5.12日晚
+# 插入新事件，deadline为5/15，12:00（缺省-b，起始时刻默认为当前时刻）
+⟩ medum -e 5.15.12.00 -n 测试1
 successfully insert event
-//插入新事件，自己指定起始时间
-⟩ medum -e 5.15.12.00 -b 5.14.12.00 -n 测试3
+# 插入新事件，自己指定起始时间
+⟩ medum -e 5.15.12.00 -b 5.14.12.00 -n 测试2
 successfully insert event
-//显示事件
+# 插入过期事件
+⟩ medum -e 5.11.12.00 -b 5.10.12.00 -n 测试3
+successfully insert event
+# 显示事件
 ⟩ medum
-11 | 🍺 测试3 | ⌛ 3 days remaining
-12 | 🍺 测试3 | ⌛ 2 days remaining
+3 | 🍺 测试3 | ⌛ no time remaining
+1 | 🍺 测试1 | ⌛ 2 days remaining
+2 | 🍺 测试2 | ⌛ 1 days beginning
+# 删除过时事件
+⟩ medum -r
+successfully delete outdated events
+# 再次打印事件，发现过期事件已经被删除
+⟩ medum
+1 | 🍺 测试1 | ⌛ 2 days remaining
+2 | 🍺 测试2 | ⌛ 1 days beginning
+# 完成序号为1的测试1，将其删除
+⟩ medum -d 1
+successfully delete event with specific ID
+# 再次打印事件，测试1已经被删除
+⟩ medum
+2 | 🍺 测试2 | ⌛ 1 days beginning
 ```
-
-**注意：显示事件操作中一个是距离开始的时间，一个是距离结束的时间，见[#漏洞](#漏洞)。**
 
 ## 配置
 
@@ -148,7 +168,7 @@ var funcs = map[string]interface{}{
 
 在项目中使用到的第三方package:
 
-+   `github.com/alecthomas/kingpin`：处理命令行参数
++   `github.com/urfave/cli/v2`：处理命令行参数
 +   `github.com/fatih/color`：跨平台的彩色输出
 +   `github.com/kyokomi/emoji`：终端输出emoji表情
 +   `github.com/mattn/go-sqlite3`：sqlite3驱动

@@ -7,8 +7,9 @@
 <p align="center">
 <img src="https://goreportcard.com/badge/github.com/amtoaer/medum?longCache=true&style=for-the-badge">
 <img src="https://img.shields.io/badge/license-MIT-orange.svg?longCache=true&style=for-the-badge">
-<img src="https://img.shields.io/badge/version-v1.0.0-red.svg?longCache=true&style=for-the-badge">
+<img src="https://img.shields.io/badge/version-v1.1.1-red.svg?longCache=true&style=for-the-badge">
 </p>
+
 
 
 ## 介绍

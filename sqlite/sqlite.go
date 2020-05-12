@@ -52,10 +52,18 @@ func QuerySqliteDB() *sql.Rows {
 	return result
 }
 
-//DeleteSqliteDB removes those outdated events
-func DeleteSqliteDB() error {
+//DeleteOutDate removes those outdated events
+func DeleteOutDate() error {
 	db := openSqliteDB()
 	defer db.Close()
 	_, err := db.Exec(text.DeleteOutDate)
+	return err
+}
+
+//DeleteID removes a line according to specific ID
+func DeleteID(id int) error {
+	db := openSqliteDB()
+	defer db.Close()
+	_, err := db.Exec(text.DeleteID, id)
 	return err
 }

@@ -3,24 +3,27 @@ package text
 
 //error list
 const (
-	HomedirError      = "error while getting homedir: %v"
-	OpenConfigError   = "error while opening config: %v"
-	CreateConfigError = "error while creating config: %v"
-	OpenDBError       = "error while opening DB: %v"
-	InsertDBError     = "error while inserting DB: %v"
-	QueryDBError      = "error while querying DB: %v"
-	LengthError       = "error while parsing parameters: time format must be month.day.hour.minute"
-	ParamError        = "error while parsing time: %v"
-	TimeError         = "error while comparing time: beginTime is larger than endTime"
+	HomedirError       = "error while getting homedir: %v"
+	OpenConfigError    = "error while opening config: %v"
+	CreateConfigError  = "error while creating config: %v"
+	OpenDBError        = "error while opening DB: %v"
+	InsertDBError      = "error while inserting DB: %v"
+	QueryDBError       = "error while querying DB: %v"
+	LengthError        = "error while parsing parameters: time format must be month.day.hour.minute"
+	ParamError         = "error while parsing time: %v"
+	TimeError          = "error while comparing time: beginTime is larger than endTime"
+	DeleteOutDateError = "error while deleting outdated events: %v"
+	DeleteIDError      = "error while deleting event with specific ID: %v"
 )
 
 //log list
 const (
 	DeleteSuccess = "successfully delete outdated events"
 	InsertSuccess = "successfully insert event"
-	StandredTime  = "2006-1-2 15:04:05 +0800 CST"
+	StandardTime  = "2006-1-2 15:04:05 +0800 CST"
 	MyTime        = "%s-%s-%s %s:%s:00 +0800 CST"
 	TimeRemaining = "%s remaining"
+	TimeBeginning = "%s beginning"
 )
 
 //sql list
@@ -38,6 +41,7 @@ const (
 	MarkOutdate    = `update eventList set isEnd=2 where ?>endDate;`
 	MarkNotStart   = `update eventList set isEnd=0 where ?<beginDate;`
 	MarkInProgress = `update eventList set isEnd=1 where ? between beginDate and endDate;`
-	QueryRow       = `select * from eventList where isEnd<>2 order by isEnd,endDate`
+	QueryRow       = `select * from eventList order by isEnd,endDate`
 	DeleteOutDate  = `delect from eventList where isEnd=2`
+	DeleteID       = `delete from eventList where id=?`
 )

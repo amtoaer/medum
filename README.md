@@ -7,8 +7,9 @@
 <p align="center">
 <img src="https://goreportcard.com/badge/github.com/amtoaer/medum?longCache=true&style=for-the-badge">
 <img src="https://img.shields.io/badge/license-MIT-orange.svg?longCache=true&style=for-the-badge">
-<img src="https://img.shields.io/badge/version-v1.1.1-red.svg?longCache=true&style=for-the-badge">
+<img src="https://img.shields.io/badge/version-v1.1.2-red.svg?longCache=true&style=for-the-badge">
 </p>
+
 
 
 
@@ -34,15 +35,6 @@ medum是一款使用go语言开发的命令行待办事项管理器。
 
     >   写完之后发现自己的也没有简单到哪里去（主要是因为不太熟悉golang`time`标准库的用法，踩了不少坑），可能唯一的优点就是运行速度比那一款快了吧..~~废话，如果golang写的还没python快不如去死算了！~~
 
-## 漏洞
-
-此处列出当前已知的`bug`，等待修复：
-
-`v1.1.1`修复：
-
--   [x] 距离开始时间和距离结束时间显示格式均为`%s remaining`，无法区分
--   [x] 不支持完成后手动删除事件（即类似于`todo done 1`这样的操作）
-
 
 ## 安装
 
@@ -52,7 +44,10 @@ medum是一款使用go语言开发的命令行待办事项管理器。
 >
 >   ![AFDB6CC4AB8CD411E0D597CF2176ABF4](https://i.loli.net/2020/05/13/EW2ryXSKnB4tkau.jpg)
 
-1.  下载`release`页面中的二进制程序，参照[#用法](#用法)运行。
+1.  下载[release](https://github.com/amtoaer/medum/releases)页面中的二进制程序，参照[#用法](#用法)运行。
+
+    >   注：每次更新内容在该页面都有详细说明，可自己酌情选择版本（推荐最新）。
+
 2.  手动构建（以linux为例）。
 
 +   安装go与git。

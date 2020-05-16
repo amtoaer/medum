@@ -1,6 +1,7 @@
 package output
 
 import (
+	"medum/public"
 	"reflect"
 
 	"github.com/fatih/color"
@@ -24,6 +25,18 @@ var funcs = map[string]interface{}{
 	"himagenta": color.New(color.FgHiMagenta),
 	"hiwhite":   color.New(color.FgHiWhite),
 	"hiblack":   color.New(color.FgHiBlack),
+}
+
+// IsValid is used to know whether config file is valid or not
+func IsValid(conf *public.Configuration) bool {
+	list := []string{conf.NumberColor, conf.EventColor, conf.TimeColor}
+	for _, item := range list {
+		// unvalid key exists
+		if _, ok := funcs[item]; !ok {
+			return false
+		}
+	}
+	return true
 }
 
 func call(m map[string]interface{}, color string, params ...interface{}) {

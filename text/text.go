@@ -5,7 +5,9 @@ package text
 const (
 	HomedirError       = "error while getting homedir: %v"
 	OpenConfigError    = "error while opening config: %v"
+	DecodeConfigError  = "error while decoding config: %v"
 	CreateConfigError  = "error while creating config: %v"
+	UnvalidConfigError = "error while checking config: unvalid colors exist"
 	OpenDBError        = "error while opening DB: %v"
 	InsertDBError      = "error while inserting DB: %v"
 	QueryDBError       = "error while querying DB: %v"

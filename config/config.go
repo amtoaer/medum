@@ -4,6 +4,7 @@ package config
 import (
 	"encoding/json"
 	"fmt"
+	"medum/output"
 	"medum/path"
 	"medum/public"
 	"medum/text"
@@ -22,6 +23,7 @@ func writeInitConfig(configPath string) {
 		fmt.Printf(text.CreateConfigError, err)
 		os.Exit(1)
 	}
+	// default config
 	conf := public.Configuration{
 		NumberColor: "red",
 		EventColor:  "blue",
@@ -46,6 +48,16 @@ func ReadConfig() *public.Configuration {
 	}
 	decoder := json.NewDecoder(file)
 	conf := new(public.Configuration)
-	decoder.Decode(conf)
+	err = decoder.Decode(conf)
+	// decode error
+	if err != nil {
+		fmt.Printf(text.DecodeConfigError, err)
+		os.Exit(1)
+	}
+	// check config
+	if !output.IsValid(conf) {
+		fmt.Println(text.UnvalidConfigError)
+		os.Exit(1)
+	}
 	return conf
 }

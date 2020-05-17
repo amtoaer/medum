@@ -13,7 +13,6 @@ import (
 	"strings"
 	"time"
 
-	"github.com/kyokomi/emoji"
 	"github.com/urfave/cli/v2"
 )
 
@@ -87,9 +86,9 @@ func main() {
 					for test.Next() {
 						test.Scan(&t.ID, &t.EventContent, &t.BeginDate, &t.EndDate, &t.IsEnd)
 						output.Call(conf.NumberColor, "%s", strconv.Itoa(t.ID))
-						emoji.Printf(" | :beer:")
+						fmt.Printf(" | 🍺 ")
 						output.Call(conf.EventColor, "%s", t.EventContent)
-						emoji.Printf(" | :hourglass:")
+						fmt.Printf(" | ⌛ ")
 						output.Call(conf.TimeColor, "%s", formatTime(t.BeginDate, t.EndDate, t.IsEnd))
 						// \n
 						fmt.Println()

@@ -11,8 +11,6 @@
 </p>
 
 
-
-
 ## 介绍
 
 medum是一款使用go语言开发的命令行待办事项管理器。
@@ -38,7 +36,7 @@ medum是一款使用go语言开发的命令行待办事项管理器。
 
 ## 安装
 
->   ~~在输出中使用到了第三方的emoji package打印emoji表情，暂不确定windows平台的兼容性。~~
+>   ~~在输出中打印了emoji表情，暂不确定windows平台的兼容性。~~
 >
 >   windows(至少是powershell)确定不兼容，感谢[@Ray-Keiyaku](https://github.com/Ray-Keiyaku)同学的测试：
 >
@@ -184,6 +182,5 @@ var funcs = map[string]interface{}{
 
 +   `github.com/urfave/cli/v2`：处理命令行参数
 +   `github.com/fatih/color`：跨平台的彩色输出
-+   `github.com/kyokomi/emoji`：终端输出emoji表情
 +   `github.com/mattn/go-sqlite3`：sqlite3驱动
 +   `github.com/mitchellh/go-homedir`:跨平台的用户目录获取

@@ -127,6 +127,11 @@ func handleString(tm string) time.Time {
 		fmt.Println(text.LengthError)
 		os.Exit(1)
 	} else {
+		for index := range tmp { // add "0"
+			if len(tmp[index]) == 1 {
+				tmp[index] = "0" + tmp[index]
+			}
+		}
 		stdString := fmt.Sprintf(text.MyTime, strconv.Itoa(time.Now().Year()), tmp[0], tmp[1], tmp[2], tmp[3])
 		result, err := time.ParseInLocation(text.StandardTime, stdString, time.Now().Local().Location())
 		if err != nil {

@@ -7,8 +7,9 @@
 <p align="center">
 <img src="https://goreportcard.com/badge/github.com/amtoaer/medum?longCache=true&style=for-the-badge">
 <img src="https://img.shields.io/badge/license-MIT-orange.svg?longCache=true&style=for-the-badge">
-<img src="https://img.shields.io/badge/version-v1.1.3-red.svg?longCache=true&style=for-the-badge">
+<img src="https://img.shields.io/badge/version-v1.1.4-red.svg?longCache=true&style=for-the-badge">
 </p>
+
 
 
 

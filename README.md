@@ -38,17 +38,23 @@ medum是一款使用go语言开发的命令行待办事项管理器。
 
 ## 安装
 
->   ~~在输出中打印了emoji表情，暂不确定windows平台的兼容性。~~
+>   注：windows用户请使用微软全新的命令行工具`windows terminal`，否则无法正常运行。
 >
->   windows(至少是powershell)确定不兼容，感谢[@Ray-Keiyaku](https://github.com/Ray-Keiyaku)同学的测试：
+>   感谢[@Ray-Keiyaku](https://github.com/Ray-Keiyaku)同学的测试。
 >
->   ![AFDB6CC4AB8CD411E0D597CF2176ABF4](https://i.loli.net/2020/05/13/EW2ryXSKnB4tkau.jpg)
+>   `powershell`:
+>
+>   ![powershell](https://i.loli.net/2020/05/28/l8DrgIikwUKvFn1.png)
+>
+>   `windows terminal`:
+>
+>   ![windows terminal](https://i.loli.net/2020/05/28/NRwEbDW64GVPorT.png)
 
-1.  下载[release](https://github.com/amtoaer/medum/releases)页面中的二进制程序，参照[#用法](#用法)运行。
+1.  （linux/windows）下载[release](https://github.com/amtoaer/medum/releases)页面中对应的的二进制程序，参照[#用法](#用法)运行。
 
     >   注：每次更新内容在该页面都有详细说明，可自己酌情选择版本（推荐最新）。
 
-2.  手动构建（以linux为例）。
+2.  手动构建。
 
 +   安装go与git。
 
@@ -60,7 +66,7 @@ medum是一款使用go语言开发的命令行待办事项管理器。
     go build -v .
     ```
 
-+   （可选）将`medum`移至环境变量：
++   将`medum`移至环境变量（以linux为例）：
 
     ```bash
     sudo mv ./medum /usr/bin/medum

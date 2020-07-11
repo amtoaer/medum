@@ -50,11 +50,17 @@ medum是一款使用go语言开发的命令行待办事项管理器。
 >
 >   ![windows terminal](https://i.loli.net/2020/05/28/NRwEbDW64GVPorT.png)
 
-1.  （linux/windows）下载[release](https://github.com/amtoaer/medum/releases)页面中对应的的二进制程序，参照[#用法](#用法)运行。
+安装主要有以下三种方法，请根据个人操作系统自行选择：
 
-    >   注：每次更新内容在该页面都有详细说明，可自己酌情选择版本（推荐最新）。
+1. （arch linux）从`AUR`安装。
 
-2.  手动构建。
+   ```bash
+   yay -S medum-bin
+   ```
+
+2. （linux/windows）下载[release](https://github.com/amtoaer/medum/releases)页面中对应的的二进制程序，参照[#用法](#用法)运行。
+
+3. （mac/linux/windows）手动构建。
 
 +   安装go与git。
 
